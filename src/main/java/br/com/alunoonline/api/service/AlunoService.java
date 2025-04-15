@@ -35,6 +35,31 @@ public class AlunoService {
         }else {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND,"Aluno não encontrado");
         }
+    }//Aluno aluno - preparando o front para mandar com JSON "aluno" vem do front em json
+    public void atualizarAlunoPorId(Long id, Aluno aluno){
+        //primeiro passo; ve se o aluno existe no BD
+        Optional<Aluno> alunoDoBancoDeDados = buscarAlunoPorId(id);
+
+        // e se nao existir esse aluno?
+        if(alunoDoBancoDeDados.isEmpty()){
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND,
+                    "Aluno nao encontrado no banco de dados");
+        }
+        //se chegar aqui , significa que exite aluno com esse id!
+        //vou armazena-lo em uma variavel para depois edita-lo.
+        Aluno alunoParaEditar= alunoDoBancoDeDados.get();
+
+        // com esse aluno para ser editado acima, faço
+        // os sets necessarios para atualizar os atributos dele
+        alunoParaEditar.setNome(aluno.getNome());
+        alunoParaEditar.setCpf(aluno.getCpf());
+        alunoParaEditar.setEmail(aluno.getEmail());
+
+        //com o aluno totalmente aditado acima
+        //eu devolvo ele atualizado para o bd
+        alunoRepository.save(alunoParaEditar);
     }
+
+
 
 }
