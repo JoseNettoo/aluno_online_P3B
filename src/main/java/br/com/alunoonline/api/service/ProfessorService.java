@@ -36,7 +36,20 @@ public class ProfessorService {
         }
 
     }
+    public void atualizarProfessorPorId(Long id,Professor professor ){
+        Optional<Professor> professorDoBancoDeDados = buscarProfessorPoId(id);
 
+        if (professorDoBancoDeDados.isEmpty()){
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND,
+                    "Professor nao encontrado no banco de dados");
+        }
+        Professor professorParaEditar = professorDoBancoDeDados.get();
+        professorParaEditar.setNome(professor.getNome());
+        professorParaEditar.setCpf(professor.getCpf());
+        professorParaEditar.setEmail(professor.getEmail());
+        professorRepository.save(professorParaEditar);
+
+    }
 
 
 
