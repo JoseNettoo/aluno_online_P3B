@@ -34,11 +34,13 @@ public class ProfessorController {
     public Optional<Professor> buscarProfessorPorId(@PathVariable Long id){
         return professorService.buscarProfessorPoId(id);
     }
+
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deletarProfessorPorId(@PathVariable Long id){
         professorService.deletarProfessorPorId(id);
     }
+
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void atualizarProfessorPorId(@PathVariable Long id, @RequestBody Professor professor){

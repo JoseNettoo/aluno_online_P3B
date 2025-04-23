@@ -22,11 +22,15 @@ public class ProfessorService {
     }
 
     public List<Professor> listarTodosProfessores(){
+
         return professorRepository.findAll();
     }
+
     public Optional<Professor> buscarProfessorPoId(Long id){
+
         return professorRepository.findById(id);
     }
+
     public void deletarProfessorPorId(Long id){
         Optional<Professor> professor=professorRepository.findById(id);
         if (professor.isPresent()){
