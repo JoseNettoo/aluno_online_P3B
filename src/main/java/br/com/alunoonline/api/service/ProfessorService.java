@@ -17,6 +17,7 @@ public class ProfessorService {
     ProfessorRepository professorRepository;
 
     public void criarProfessor(Professor professor){
+
         professorRepository.save(professor);
     }
 

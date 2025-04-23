@@ -10,21 +10,25 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/professor")
+@RequestMapping("/professores")
 public class ProfessorController {
     @Autowired
     ProfessorService professorService;
 
-    @ResponseStatus(HttpStatus.CREATED)
+    @ResponseStatus(HttpStatus.CREATED) //201 created
     @PostMapping
     public void criarProfessor(@RequestBody Professor professor){
+
         professorService.criarProfessor(professor);
     }
+
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public List<Professor> listarTodosProfessores(){
+
         return professorService.listarTodosProfessores();
     }
+
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public Optional<Professor> buscarProfessorPorId(@PathVariable Long id){
