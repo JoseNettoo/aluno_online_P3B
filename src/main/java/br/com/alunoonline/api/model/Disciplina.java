@@ -18,5 +18,5 @@ public class Disciplina {
     private Integer cargaHoraria;
     @ManyToOne // primeira palavra fala da classe, many "muitas disciplinas",TO"para", one"um professor"
     @JoinColumn(name = "professor_id") // juntar as duas tabelas, chave estrangeira( nome de tabela referenciando com chave primaria)
-    private Professor professor;// relacionamento JPA(fazendo que o banco diga 1 para N)
+    private Professor professor;// relacionamento JPA, para referenciar o objeto anterior,
 }
