@@ -6,6 +6,9 @@ import br.com.alunoonline.api.repository.MatriculaAlunoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Optional;
+
 @Service
 public class MatriculaAlunoService {
 
@@ -18,8 +21,13 @@ public class MatriculaAlunoService {
         matriculaAlunoRepository.save(matriculaAluno);
     }
 
+    public List<MatriculaAluno>listarTodasMatriculaAluno(){
+        return matriculaAlunoRepository.findAll();
 
+    }
 
-
+    public Optional<MatriculaAluno>buscarMatriculaAlunoPorId(long id){
+        return matriculaAlunoRepository.findById(id);
+    }
 
 }
