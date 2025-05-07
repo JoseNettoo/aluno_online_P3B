@@ -27,7 +27,7 @@ public class MatriculaAlunoController {
         return matriculaAlunoService.listarTodasMatriculaAluno();
     }
 
-    @GetMapping{"/{id}"}
+    @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public Optional<MatriculaAluno> buscarMatriculaAlunoPorId(@PathVariable Long id){
         return matriculaAlunoService.buscarMatriculaAlunoPorId(id);
@@ -42,7 +42,13 @@ public class MatriculaAlunoController {
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void atualizarMatriculaAlunoPorId(@PathVariable Long id, @RequestBody MatriculaAluno matriculaAluno){
-        matriculaAlunoService.atualizarMatriculaAlunoPorId(id,matriculaAluno);
+        matriculaAlunoService.atualizarMatriculaAlunoPorId(id, matriculaAluno);
+    }
+
+    @PatchMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void trancarMatricula(@PathVariable Long id){
+        matriculaAlunoService.trancarMatricula(id);
     }
 
 }

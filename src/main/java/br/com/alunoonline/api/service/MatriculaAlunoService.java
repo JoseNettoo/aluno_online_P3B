@@ -18,17 +18,17 @@ public class MatriculaAlunoService {
     MatriculaAlunoRepository matriculaAlunoRepository;
 
 
-    public void criarMatricula(MatriculaAluno matriculaAluno){
+    public void criarMatricula(MatriculaAluno matriculaAluno) {
         matriculaAluno.setStatus(MatriculaAlunoStatusEnum.MATRICULADO);
         matriculaAlunoRepository.save(matriculaAluno);
     }
 
-    public List<MatriculaAluno>listarTodasMatriculaAluno(){
-        return matriculaAlunoRepository.findAll();
 
+    public List<MatriculaAluno> listarTodasMatriculaAluno() {
+        return matriculaAlunoRepository.findAll();
     }
 
-    public Optional<MatriculaAluno>buscarMatriculaAlunoPorId(long id){
+    public Optional<MatriculaAluno> buscarMatriculaAlunoPorId(long id) {
         return matriculaAlunoRepository.findById(id);
     }
 
@@ -40,16 +40,34 @@ public class MatriculaAlunoService {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }
     }
-    public void atualizarMatriculaAlunoPorId(Long id, MatriculaAluno matriculaAluno){
-        Optional <MatriculaAluno> matriculaAlunoDoBancoDeDados = buscarMatriculaAlunoPorId(id);
-        if (matriculaAlunoDoBancoDeDados.isEmpty()){
+
+    public void atualizarMatriculaAlunoPorId(Long id, MatriculaAluno matriculaAluno) {
+        Optional<MatriculaAluno> matriculaAlunoDoBancoDeDados = buscarMatriculaAlunoPorId(id);
+        if (matriculaAlunoDoBancoDeDados.isEmpty()) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND,
                     "MatriculaAluno Não encotrado no Banco de Dados");
         }
-        MatriculaAluno matriculaAlunoParaEditar= matriculaAlunoDoBancoDeDados.get();
+        MatriculaAluno matriculaAlunoParaEditar = matriculaAlunoDoBancoDeDados.get();
         matriculaAlunoParaEditar.setAluno(matriculaAluno.getAluno());
         matriculaAlunoParaEditar.setDisciplina(matriculaAluno.getDisciplina());
-
     }
+    public void trancarMatricula(Long matriculaAlunoId) {
+        //Antes de trancar, verifica se a matricula existe
+        MatriculaAluno matriculaAluno =
+                matriculaAlunoRepository.findById(matriculaAlunoId)
+                        .orElseThrow(() ->
+                                new ResponseStatusException(HttpStatus.NOT_FOUND,
+                                        "Matricula Aluno não encontrada"));
 
+        //so vai deixar TRANCAR, se o status ATUAL for MATRICULADO
+        if (matriculaAluno.getStatus().equals(MatriculaAlunoStatusEnum.MATRICULADO)) {
+            matriculaAluno.setStatus(MatriculaAlunoStatusEnum.TRANCADO);
+            matriculaAlunoRepository.save(matriculaAluno);
+        } else {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST,
+                    "Só é possivel trancar com Status MATRICULADO");
+        }
+    }
 }
+
+
