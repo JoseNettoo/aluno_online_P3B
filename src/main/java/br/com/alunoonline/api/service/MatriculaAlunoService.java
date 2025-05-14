@@ -1,5 +1,6 @@
 package br.com.alunoonline.api.service;
 
+import br.com.alunoonline.api.dtos.AtualizarNotasRequestDTO;
 import br.com.alunoonline.api.enums.MatriculaAlunoStatusEnum;
 import br.com.alunoonline.api.model.MatriculaAluno;
 import br.com.alunoonline.api.repository.MatriculaAlunoRepository;
@@ -13,6 +14,9 @@ import java.util.Optional;
 
 @Service
 public class MatriculaAlunoService {
+
+    private static final Double MEDIA_PARA_APROVACAO= 7.0;
+    private static final Integer QTD_NOTAS = 2;
 
     @Autowired
     MatriculaAlunoRepository matriculaAlunoRepository;
@@ -68,6 +72,36 @@ public class MatriculaAlunoService {
                     "Só é possivel trancar com Status MATRICULADO");
         }
     }
+    //transferencia de dados do objeto
+    public void atualizarNotas(Long matriculaAlunoId, AtualizarNotasRequestDTO atualizarNotasRequestDTO){
+        MatriculaAluno matriculaAluno=buscarMatriculaOuLancarExcecao(matriculaAlunoId);
+
+        if (atualizarNotasRequestDTO.getNota1() != null){
+            matriculaAluno.setNota1(atualizarNotasRequestDTO.getNota1());
+        }
+        if (atualizarNotasRequestDTO.getNota2() != null){
+            matriculaAluno.setNota2(atualizarNotasRequestDTO.getNota2());
+        }
+        calcularMediaEModificarStatus(matriculaAluno);
+        matriculaAlunoRepository.save(matriculaAluno);
+
+    }
+    private MatriculaAluno buscarMatriculaOuLancarExcecao(Long matriculaAlunoId){
+        return matriculaAlunoRepository.findById(matriculaAlunoId)
+                .orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND,
+                        "Matricula do Aluno não encontrada"));
+    }
+
+    private void calcularMediaEModificarStatus(MatriculaAluno matriculaAluno){
+        Double nota1= matriculaAluno.getNota1();
+        Double nota2= matriculaAluno.getNota2();
+        if (nota1 != null && nota2 !=null){
+            Double media=(nota1+nota2)/QTD_NOTAS;
+            matriculaAluno.setStatus(media >= MEDIA_PARA_APROVACAO ? MatriculaAlunoStatusEnum.APROVADO :MatriculaAlunoStatusEnum.REPROVADO);
+        }
+
+    }
+
 }
 
 
