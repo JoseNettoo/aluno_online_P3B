@@ -129,10 +129,11 @@ public class MatriculaAlunoService {
         response.setNota1(matriculaAluno.getNota1());
         response.setNota2(matriculaAluno.getNota2());
         response.setMedia(calcularMedia(matriculaAluno.getNota1(),matriculaAluno.getNota2());
-        response.setStatus(matriculaAluno);
+        response.setStatus(matriculaAluno.getStatus());
+        return response;
     }
     private Double calcularMedia(Double nota1, Double nota2){
-        return (nota1 != null && nota2 != = null) ? (nota1 +nota2) / QTD_NOTAS : null;
+        return (nota1 != null && nota2 !=  null) ? (nota1 +nota2) / QTD_NOTAS : null;
     }
 
 
