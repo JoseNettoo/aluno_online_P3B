@@ -33,12 +33,14 @@ public class DisciplinaController {
         return disciplinaService.buscarDisciplinaPorId(id);
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deletarDisciplinaPorId(@PathVariable Long id){
         disciplinaService.deletarDisciplinaPorId(id);
     }
 
+    @PutMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public void atualizarDisciplinaPorId(@PathVariable Long id, @RequestBody Disciplina disciplina){
         disciplinaService.atualizarDisciplinaPorId(id,disciplina);
     }
