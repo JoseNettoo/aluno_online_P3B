@@ -128,7 +128,7 @@ public class MatriculaAlunoService {
         response.setNomeDisciplina(matriculaAluno.getDisciplina().getProfessor().getNome());
         response.setNota1(matriculaAluno.getNota1());
         response.setNota2(matriculaAluno.getNota2());
-        response.setMedia(calcularMedia(matriculaAluno.getNota1(),matriculaAluno.getNota2());
+        response.setMedia(calcularMedia(matriculaAluno.getNota1(),matriculaAluno.getNota2()));
         response.setStatus(matriculaAluno.getStatus());
         return response;
     }
