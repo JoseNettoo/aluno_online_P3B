@@ -37,27 +37,33 @@ Aluno:
 
 
 Estrutura Básica de Dados
+
 Criar Professor:
+
 JSON = 
 
 ![image](https://github.com/user-attachments/assets/afea498b-1333-4ff2-ad2c-3924289b7d95)
 
 
 Criar Disciplina:
+
 JSON=
 
 ![image](https://github.com/user-attachments/assets/593a02b2-bb12-47f7-9d40-fa52d706de20)
 
 Criar Matrícula:
+
 JSON=
 
 ![image](https://github.com/user-attachments/assets/4d428f5f-0a7b-44ef-ac43-5573c515aee3)
 
 
 Atualizar Notas:
+
 JSON=
 
 ![image](https://github.com/user-attachments/assets/27770f80-d914-4746-80cb-1eb25b11f993)
+
 
 Estruturas das Pastas
 
