@@ -10,10 +10,12 @@ Frameworks: (Spring)
 
 Banco de Dados: (PostgreSQL)
 
-Outras ferramentas: (Swagger, insominia)
+Outras ferramentas: (Swagger, Insominia)
+
 
 
 Documentação API
+
 Link Swagger: http://localhost:8080/swagger-ui/index.html
 
 Endpoints
