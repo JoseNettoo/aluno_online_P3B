@@ -31,53 +31,31 @@ Aluno:
 Estrutura Básica de Dados
 Criar Professor:
 JSON = 
-{
-  "nome": "Carlos Silva",
-  "cpf": "198.978.876-65",
-  "email": "carlos@faculdade.com"
-}
+
+![image](https://github.com/user-attachments/assets/afea498b-1333-4ff2-ad2c-3924289b7d95)
+
 
 Criar Disciplina:
 JSON=
-{
-	"nome":"liguagem de programacao",
-	"cargaHoraria":60,
-	"professor":{
-		"id": 5
-	}
-}
+
+![image](https://github.com/user-attachments/assets/593a02b2-bb12-47f7-9d40-fa52d706de20)
 
 Criar Matrícula:
 JSON=
-{
-	"aluno": {
-		"id": 205
-	},
-	"disciplina": {
-		"id": 4
-	}
-}
+
+![image](https://github.com/user-attachments/assets/4d428f5f-0a7b-44ef-ac43-5573c515aee3)
+
 
 Atualizar Notas:
 JSON=
-{
-	"nota1":10.0,
-	"nota2": 7.5
-}
+
+![image](https://github.com/user-attachments/assets/27770f80-d914-4746-80cb-1eb25b11f993)
 
 Estruturas das Pastas
-src
-└── main
-    └── java
-        └── br.com.alunoonline.api
-            ├── config        → Configurações gerais (Swagger)
-            ├── controller    → Controladores (endpoints REST)
-            ├── dtos          → Objetos de transferência de dados (Data Transfer Objects)
-            ├── enums         → Enumerações (status)
-            ├── model         → Entidades (mapeamento JPA / banco de dados)
-            ├── repository    → Interfaces de acesso a dados (extends JpaRepository)
-            ├── service       → Regras de negócio
-            └── AlunoOnlineApplication.java → Classe principal da aplicação
+
+
+![image](https://github.com/user-attachments/assets/00051c27-f3fe-4c62-9f91-4abdee206160)
+
 
 
 
