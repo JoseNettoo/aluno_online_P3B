@@ -1,21 +1,84 @@
-Descrição:
+Descrição
 Esta API permite gerenciar um sistema acadêmico, incluindo operações de cadastro de professores, alunos, disciplinas e matrículas, além de funcionalidades específicas como atualização de notas e emissão de histórico escolar.
 
-Tecnologias e Ferramentas:
+Tecnologias e Ferramentas
 Linguagem: (Java)
 Frameworks: (Spring)
 Banco de Dados: (PostgreSQL)
 Outras ferramentas: (Swagger, insominia)
 
-Documentação API:
+Documentação API
 Link Swagger: http://localhost:8080/swagger-ui/index.html
 
-Endpoints:
-Professor =
+Endpoints
+Professor:
+
 ![image](https://github.com/user-attachments/assets/5271a61b-6532-4125-86c2-efe8e2a9f34f)
 
-Matricula Aluno=
+Matricula Aluno:
+
 ![image](https://github.com/user-attachments/assets/6bf10d8b-c0ff-4bfd-a72d-00af08ec2e81)
+
+Disciplina:
+
+![image](https://github.com/user-attachments/assets/5820549d-c212-45ea-b670-eb13230bf46e)
+
+Aluno:
+
+![image](https://github.com/user-attachments/assets/e438bc26-0857-4af9-8a8a-26f5525b747c)
+
+
+Estrutura Básica de Dados
+Criar Professor:
+JSON = 
+{
+  "nome": "Carlos Silva",
+  "cpf": "198.978.876-65",
+  "email": "carlos@faculdade.com"
+}
+
+Criar Disciplina:
+JSON=
+{
+	"nome":"liguagem de programacao",
+	"cargaHoraria":60,
+	"professor":{
+		"id": 5
+	}
+}
+
+Criar Matrícula:
+JSON=
+{
+	"aluno": {
+		"id": 205
+	},
+	"disciplina": {
+		"id": 4
+	}
+}
+
+Atualizar Notas:
+JSON=
+{
+	"nota1":10.0,
+	"nota2": 7.5
+}
+
+Estruturas das Pastas
+src
+└── main
+    └── java
+        └── br.com.alunoonline.api
+            ├── config        → Configurações gerais (Swagger)
+            ├── controller    → Controladores (endpoints REST)
+            ├── dtos          → Objetos de transferência de dados (Data Transfer Objects)
+            ├── enums         → Enumerações (status)
+            ├── model         → Entidades (mapeamento JPA / banco de dados)
+            ├── repository    → Interfaces de acesso a dados (extends JpaRepository)
+            ├── service       → Regras de negócio
+            └── AlunoOnlineApplication.java → Classe principal da aplicação
+
 
 
 
