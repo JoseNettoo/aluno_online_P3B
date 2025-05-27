@@ -1,5 +1,5 @@
 Descrição:
-Sistema acadêmico, que será feito a criação e o cadastro de alunos, professores e disciplinas, atualização de notas, emissão de historico dos alunos.
+Esta API permite gerenciar um sistema acadêmico, incluindo operações de cadastro de professores, alunos, disciplinas e matrículas, além de funcionalidades específicas como atualização de notas e emissão de histórico escolar.
 
 Tecnologias e Ferramentas:
 Linguagem: (Java)
@@ -11,7 +11,12 @@ Documentação API:
 Link Swagger: http://localhost:8080/swagger-ui/index.html
 
 Endpoints:
-Professor = ![image](https://github.com/user-attachments/assets/5271a61b-6532-4125-86c2-efe8e2a9f34f)
+Professor =
+![image](https://github.com/user-attachments/assets/5271a61b-6532-4125-86c2-efe8e2a9f34f)
+
+Matricula Aluno=
+![image](https://github.com/user-attachments/assets/6bf10d8b-c0ff-4bfd-a72d-00af08ec2e81)
+
 
 
 
