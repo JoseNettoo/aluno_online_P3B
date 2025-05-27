@@ -3,9 +3,13 @@ Descrição
 Esta API permite gerenciar um sistema acadêmico, incluindo operações de cadastro de professores, alunos, disciplinas e matrículas, além de funcionalidades específicas como atualização de notas e emissão de histórico escolar.
 
 Tecnologias e Ferramentas
+
 Linguagem: (Java)
+
 Frameworks: (Spring)
+
 Banco de Dados: (PostgreSQL)
+
 Outras ferramentas: (Swagger, insominia)
 
 Documentação API
