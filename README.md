@@ -1,3 +1,42 @@
+Descrição:
+Sistema acadêmico, que será feito a criação e o cadastro de alunos, professores e disciplinas, atualização de notas, emissão de historico dos alunos.
+
+Tecnologias e Ferramentas:
+Linguagem: (Java)
+Frameworks: (Spring)
+Banco de Dados: (PostgreSQL)
+Outras ferramentas: (Swagger, insominia)
+
+Documentação API:
+Link Swagger: http://localhost:8080/swagger-ui/index.html
+
+Endpoints:
+Professor = ![image](https://github.com/user-attachments/assets/5271a61b-6532-4125-86c2-efe8e2a9f34f)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ![image](https://github.com/user-attachments/assets/b0bbaa92-8a66-44da-8b6a-62204b769dbd)
 ![image](https://github.com/user-attachments/assets/89f1105a-5745-4dfe-945f-cef59e8d5bb0)
 ![image](https://github.com/user-attachments/assets/7ce52926-03db-4472-8690-688ad32443ea)
